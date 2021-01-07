@@ -1,0 +1,3 @@
+# robots
+Disallow: /downloads/*
+Disallow: /avatar/*

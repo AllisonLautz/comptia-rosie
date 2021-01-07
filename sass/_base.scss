@@ -1,0 +1,398 @@
+html{
+	overflow-x:hidden;
+}
+
+body{
+	font:$light 16px/1.5em $font;
+	color:$graydk;
+	width:100%;
+	overflow-x:hidden;
+	&.adjust{margin:75px 0 0;}
+}
+
+// headings, text types
+
+h1,h2,h3,h4,h5,h6{
+	font-family:$font;
+	margin:0 0 30px;
+	line-height:1em;
+	&::-moz-selection { background: $blue; color:$white;}
+	&::selection { background: $blue; color:$white;}
+}
+
+h1{ font-size:3.375em; color:$graydkr;}
+h2{ font-size:1.75em; color:$graydkr;}
+h3{ font-size:1.8em;}
+h4{ font-size:1.5em;}
+h5{ font-size:1.33em;}
+h6{ font-size:1.2em}
+
+p, li{
+	margin: 0 0 30px;
+	&::-moz-selection { background: $blue; color:$white;}
+	&::selection { background: $blue; color:$white;}
+}
+
+ul {
+	list-style: disc;
+	margin: 0 0 0 30px;
+
+}
+ol {
+	list-style: decimal;
+	margin: 0 0 0 30px;
+}
+
+
+a{
+	color:$red;
+	font-size:1em;
+	text-decoration:none;
+	@include single-transition(all, 0.3s, ease-in-out);
+	&:hover{
+		color:$black;
+	}
+}
+
+// text modifiers
+
+strong, b{
+	font-weight:$bold;
+}
+
+em, i{font-style: italic;}
+
+
+// other html elements
+
+
+img{
+	max-width:100%;
+	&.right{margin:0 0 15px 15px;}
+	&.left{margin:0 15px 15px 0;}
+	&.center, &.centered{margin:0 auto 15px; display:block;}
+}
+
+
+hr{
+	border: none;
+	float:left;
+	width:100%;
+	border-bottom: 1px solid $black;
+	margin: 0 0 30px;
+}
+
+blockquote{
+	float:left;
+	width:100%;
+	box-sizing:border-box;
+	padding:20px;
+	margin:30px 0 60px;
+}
+
+pre{word-break:break-word; word-wrap:break-word;}
+
+small{
+	font-size:.75em;
+	display:inline-block;
+	margin:0 0 20px;
+}
+
+button{
+	cursor:pointer;
+}
+
+table{
+	float:left;
+	width:100%;
+	margin:0 0 30px;
+}
+
+th, td{
+	padding:0 0 10px;
+}
+
+
+form{
+	float:left;
+	clear:left;
+	width:100%;
+	box-sizing:border-box;
+}
+
+
+input, select, textarea{
+	float:left;
+	width:100%;
+	box-sizing:border-box;
+	margin:0 0 10px;
+	border:none;
+	font-size:1em;
+	line-height:1.5em;
+	font-family:$font;
+	position:relative;
+	z-index:100;
+	box-shadow:0 1px 0 0 $gray;
+	background:transparent;
+	color:$black;
+	font-weight:$light;
+	&::-webkit-input-placeholder {
+		color:$black;
+		font-family:$font;
+	}
+	&:-moz-placeholder {
+		color:$black;
+		font-family:$font;
+	}
+	&::-moz-placeholder {
+		color:$black;
+		font-family:$font;
+	}
+	&:-ms-input-placeholder {
+		color:$black;
+		font-family:$font;
+	}
+	&:focus{
+		outline:none;
+	}
+	&:-webkit-focus{
+		outline:none;
+	}
+}
+input.opt,textarea.opt{display: none} //hide spam filters
+form .message{color: $red;}
+.fieldwrap.error{
+	input, select, textarea{
+		box-shadow:0 1px 0 0 $red;
+	}
+}
+input[type="text"], input[type="submit"]{
+	@include appearance(none);
+	border-radius:0px;
+}
+
+
+input[type="radio"], input[type="checkbox"]{
+	width:auto;
+	box-shadow:none;
+	margin:4px 10px 0 0;
+	clear:left;
+	background:$graylt;
+}
+
+input[type="submit"]{
+	cursor:pointer;
+	margin:30px 0 0;
+	background:$red;
+	box-shadow:none;
+	color:$white;
+	width:auto;
+	padding:15px 50px;
+	@include single-transition(all, .3s ease-in-out);
+	&:hover{
+		background:$graydkr;
+		color:$white;
+	}
+}
+
+input[type="date"]{
+	cursor:pointer;
+	max-height:36px;
+}
+
+select{
+	border-radius:0px;
+	cursor:pointer;
+	@include appearance(none);
+	background:url(../imgs/form_select-arrow-big.png) 100% -2px no-repeat $white;
+	color:$white;
+	padding:0 0 5px;
+	position:relative;
+	z-index:0;
+	&.active{color:$graydkr;}
+}
+
+option, select{
+	text-align:left;
+	// color:$graydkr;
+}
+
+.fieldwrap{
+	float:left;
+	width:100%;
+}
+
+label{
+	float:left;
+	width:100%;
+	box-sizing:border-box;
+	border:none;
+	margin:0;
+	position:relative;
+	top:24px;
+	z-index:50;
+	color:$gray;
+	@include single-transition(all, .3s, ease-in-out);
+	&.active{
+		top:0;
+		font-size:.875em;
+	}
+	&.select{
+		background:$white;
+		width:auto;
+		position:relative;
+		z-index:1;
+	}
+}
+
+input[value], textarea[value]{
+	//color:$gray;
+}
+// // // Layout Elements // // //
+
+#header, .masthead, .mainslider, #content, #footer{float:left; width:100%;}
+
+.center, .centered{text-align:center;}
+.alignright{text-align:right;}
+
+.nopadding{padding:0;}
+.nomargin{margin:0;}
+
+.nobottom{padding-bottom:0;}
+.notop{padding-top:0;}
+
+.relative{position:relative;}
+
+.absolute{position:absolute;}
+
+.valign{
+	position:absolute;
+	left:0;
+	top:50%;
+	@include transform(translateY(-50%));
+	width:100%;
+	&.right{
+		right:0;
+		left:initial;
+	}
+	@media(max-width:1024px){
+		position:static;
+		@include transform(translateX(0));
+	}
+	@media(max-height:700px){
+		position:static;
+		@include transform(translateX(0));
+	}
+}
+
+
+.vcenter{
+	position:absolute;
+	left:0;
+	top:50%;
+	@include transform(translateY(-50%));
+	width:100%;
+	&.right{
+		right:0;
+		left:initial;
+	}
+	@media(max-width:1024px){
+		position:static;
+		@include transform(translateX(0));
+	}
+	@media(max-height:700px){
+		//position:static;
+		//@include transform(translateX(0));
+	}
+}
+
+
+
+.left{
+	float:left;
+	@media(max-width:767px){
+		width:100%;
+		margin:0;
+	}
+}
+.right{
+	float:right;
+	@media(max-width:767px){
+		width:100%;
+		margin:0;
+	}
+}
+
+
+.full, .whole{
+	width:100%;
+	float:left;
+}
+
+
+
+.half{width: 50%;
+	@media(max-width:1024px){
+		width:100%;
+	}
+}
+
+/* thirds */
+.onethird{width: 31%;
+	@media(max-width:1024px){
+		width:100%;
+	}
+}
+.twothird{width: 64%;
+	@media(max-width:1024px){
+		width:100%;
+	}
+}
+/* quarters */
+.onequarter, .onefourth{width:24%;
+	@media(max-width:1024px){
+		width:100%;
+	}
+}
+.threequarter, .threequarters, .threefourth, .threefourths{width:73%;
+	@media(max-width:1024px){
+		width:100%;
+	}
+}
+/* fifths */
+.onefifth{width:18%;
+	@media(max-width:1024px){
+		width:100%;
+	}
+}
+.twofifth, .twofifths{width:38%;
+	@media(max-width:1024px){
+		width:100%;
+	}
+}
+.threefifth, .threefifths{width:48%;
+	@media(max-width:1024px){
+		width:100%;
+	}
+}
+.fourfifth, .fourfifths{width:80%;
+	@media(max-width:1024px){
+		width:100%;
+	}
+}
+
+
+//
+
+.button{
+	box-sizing:border-box;
+	padding:15px 25px;
+	display:inline-block;
+	background:$red;
+	color:$white;
+	@include single-transition(all, .3s, ease-in-out);
+	&:hover{
+		background:$graydkr;
+		color:$white;
+	}
+}

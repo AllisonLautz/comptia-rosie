@@ -1,0 +1,12 @@
+// remember to use the naming convention 'site-name_screen.scss' //
+
+@import "compass";
+@import "compass/reset";
+@import "vars";
+@import "base"; // this should be last so classes such as "relative" or "absolute" can modify elements defined earlier (like "section")
+// @import "waypoints";
+@import "theme";
+
+@import "compass/css3";
+
+
